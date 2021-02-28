@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage("Build") {
+            options {
+                retry(3)
+            }
+            steps {
+                echo "Before error"
+                error "error statement got excute"
+                echo "after error statement"
+            }
+        }
+    }
+}
